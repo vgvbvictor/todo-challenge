@@ -1,5 +1,5 @@
 # strider-challenge
-Sistema de gerenciamento de tarefas
+#### Sistema de gerenciamento de tarefas
 
 
 Criar um sistema no qual é possível cadastrar tarefas em uma interface web e
@@ -8,7 +8,7 @@ informações sobre a tarefa em um banco de dados MySQL e salvar a foto em arqui
 fornecendo os endpoints REST para a interface web e o client android. Ficar a vontade
 para criar funcionalidades que melhorem a experiencia do usuário.
 
-# tecnologias utilizadas
+#### Tecnologias utilizadas
 servidor:
 * spring framework
 * hibernate
