@@ -1,0 +1,49 @@
+<!doctype html>
+<html  ng-app="todoApp" >
+<head>
+	<title>Strider Challenge</title>
+	
+	<script src="js/angular-bootstrap.js"></script>
+	<script src="todo.js"></script>
+	<link rel="stylesheet" href="todo.css">
+	
+	
+	<style type="text/css">
+	[ng\:cloak], [ng-cloak], .ng-cloak {
+	  display: none !important;
+	}
+	</style>
+</head>
+
+<!-- body ng-app="hello">  -->
+<!--  <div class="container">  -->
+<!--    <h2>Hello World</h2>  -->
+<!--    <div ng-controller="home" ng-cloak class="ng-cloak"> -->
+<!--      <p>The ID is {{greeting.id}}</p> -->
+<!--      <p>The content is {{greeting.content}}</p> -->
+<!--    </div> -->
+<!--  </div> -->
+  
+<body>
+    <h2>Lista de tarefas</h2>
+    <div ng-controller="TodoListController as todoList">
+      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+    </div>
+ <script src="js/hello.js"></script> 
+  
+</body>
+</html>

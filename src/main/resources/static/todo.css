@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+    .done-true {
+      text-decoration: line-through;
+      color: #4e9a06;
+    }
+
