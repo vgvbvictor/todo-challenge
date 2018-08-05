@@ -1,12 +1,12 @@
-package org.springframework.boot.strider_challenge;
+package org.springframework.boot.todo_challenge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StriderChallengeApplication {
+public class TodoChallengeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StriderChallengeApplication.class, args);
+		SpringApplication.run(TodoChallengeApplication.class, args);
 	}
 }

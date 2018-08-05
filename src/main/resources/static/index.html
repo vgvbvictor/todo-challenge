@@ -1,7 +1,7 @@
 <!doctype html>
 <html  ng-app="todoApp" >
 <head>
-	<title>Strider Challenge</title>
+	<title>TODO Challenge</title>
 	
 	<script src="js/angular-bootstrap.js"></script>
 	<script src="todo.js"></script>
@@ -14,21 +14,12 @@
 	}
 	</style>
 </head>
-
-<!-- body ng-app="hello">  -->
-<!--  <div class="container">  -->
-<!--    <h2>Hello World</h2>  -->
-<!--    <div ng-controller="home" ng-cloak class="ng-cloak"> -->
-<!--      <p>The ID is {{greeting.id}}</p> -->
-<!--      <p>The content is {{greeting.content}}</p> -->
-<!--    </div> -->
-<!--  </div> -->
   
 <body>
     <h2>Lista de tarefas</h2>
     <div ng-controller="TodoListController as todoList">
-      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
-      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <span>{{todoList.remaining()}} de {{todoList.todos.length}} tarefas restante</span>
+      [ <a href="" ng-click="todoList.archive()">remover</a> ]
       <ul class="unstyled">
         <li ng-repeat="todo in todoList.todos">
           <label class="checkbox">
@@ -43,7 +34,21 @@
         <input class="btn-primary" type="submit" value="add">
       </form>
     </div>
- <script src="js/hello.js"></script> 
   
 </body>
+<p>user.id =  {{User.id}}</p>
+<p>tarefa.id =  {{tarefa.id}}</p>
+<p>tarefa.tarefa =  {{tarefa.tarefa}}</p>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("/api/all")
+    .then(function(response) {
+        $scope.myWelcome = response.data;
+    });
+});
+</script> 
+
 </html>

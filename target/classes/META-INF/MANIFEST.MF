@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Implementation-Title: strider_challenge
+Implementation-Title: todo_challenge
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: victor
 Implementation-Vendor-Id: org.springframework
 Build-Jdk: 1.8.0_181
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/strider_challenge
+ ot-starter-parent/todo_challenge
 Created-By: Maven Integration for Eclipse
 
