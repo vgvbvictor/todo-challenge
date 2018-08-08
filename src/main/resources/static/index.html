@@ -1,25 +1,21 @@
 <!doctype html>
 <html  ng-app="todoApp" >
 <head>
-	<title>TODO Challenge</title>
-	
+	<title>TODO Challenge</title>	
 	<script src="js/angular-bootstrap.js"></script>
 	<script src="todo.js"></script>
 	<link rel="stylesheet" href="todo.css">
-	
-	
-	<style type="text/css">
-	[ng\:cloak], [ng-cloak], .ng-cloak {
-	  display: none !important;
-	}
-	</style>
+
 </head>
   
 <body>
-    <h2>Lista de tarefas</h2>
+<div class="mainframe">
+   <div> 
+   		 <h2>Lista de tarefas</font></h2>
+    </div>
     <div ng-controller="TodoListController as todoList">
       <span>{{todoList.remaining()}} de {{todoList.todos.length}} tarefas restante</span>
-      [ <a href="" ng-click="todoList.archive()">remover</a> ]
+      [ <a href="" ng-click="todoList.archive()"><font color="white">remover</font></a> ]
       <ul class="unstyled">
         <li ng-repeat="todo in todoList.todos">
           <label class="checkbox">
@@ -28,27 +24,23 @@
           </label>
         </li>
       </ul>
+      
       <form ng-submit="todoList.addTodo()">
         <input type="text" ng-model="todoList.todoText"  size="30"
                placeholder="add new todo here">
         <input class="btn-primary" type="submit" value="add">
       </form>
     </div>
-  
+</div>
+
+<div style="position: relative">    
+    <div style="position: absolute;">
+    Victor Brandão (C) 2018
+    </div>
+</div>
 </body>
-<p>user.id =  {{User.id}}</p>
-<p>tarefa.id =  {{tarefa.id}}</p>
-<p>tarefa.tarefa =  {{tarefa.tarefa}}</p>
 
 
-<script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
-    $http.get("/api/all")
-    .then(function(response) {
-        $scope.myWelcome = response.data;
-    });
-});
-</script> 
+
 
 </html>

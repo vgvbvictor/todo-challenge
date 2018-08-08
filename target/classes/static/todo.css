@@ -4,4 +4,19 @@
       text-decoration: line-through;
       color: #4e9a06;
     }
-
+    .mainframe {
+  	width: 400px;
+  	height:550px;
+  	background-color: #004D40;
+  	margin: 0 auto;
+    color: #AAD6AC;
+    border-radius: 10px 60px 10px 60px;
+	}
+    body {
+    background-color: #cbe7cb;
+    }
+	h2 {
+	width: 400px;
+	text-align: center;
+	color: white;
+	}

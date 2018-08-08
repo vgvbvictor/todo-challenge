@@ -1,24 +1,25 @@
     angular.module('todoApp', [])
-      .controller('TodoListController', function($scope, $http) {
+      .controller('TodoListController', function($scope, $http, TodoService) {
         var todoList = this;
         todoList.todos = [
-          {text:'Desafio DEV1', done:true}];     
+          {
+          }];
         
-        
+        TodoService.getAllTodo(todoList);
+         
         todoList.addTodo = function() {        	
-          todoList.todos.push({text:todoList.todoText, done:false});
+          var texto = todoList.todoText;
+          $http.post('/api/add',{
+        	tarefa: texto
+          }).then(function ( response ){
+        	  todoList.todos.push({
+				  text: response.data.tarefa, 
+        			id: response.data.id,
+        			done: false
+				  });
+          });
           todoList.todoText = '';
         };
-        
-        //http POST
-        //click em done, update databank
-          //trocar user para tarefa
-          //criar outra tabela 
-          //deletar tabela user
-          //trocar nome no "MainController" para "apiController"
-          //trocar "User.java" para "Tarefa.java"
-     // ->>    //http post angular
-          //atention in the controller
      
         todoList.remaining = function() {
           var count = 0;
@@ -31,16 +32,32 @@
         todoList.archive = function() {
           var oldTodos = todoList.todos;
           todoList.todos = [];
+
+          var promises = [];
+          
           angular.forEach(oldTodos, function(todo) {
-            if (!todo.done) todoList.todos.push(todo);
+            if (todo.done) {
+            	promises.push($http.delete('/api/delete/'+todo.id));
+            }
+          });
+          
+          Promise.all(promises).then(function (){
+        	  TodoService.getAllTodo(todoList);
           });
         };
       })
       
       .service('TodoService', function($http){
-    	  function getAllTodo() {
-    	        return $http.get('/api/all');
+    	  this.getAllTodo = function (todoList) {
+    		  $http.get('/api/all').then(function(resposta){
+    			  todoList.todos = resposta.data.map( function (item) {
+    	        		return {
+    	        			text: item.tarefa, 
+    	        			id: item.id,
+    	        			done: false
+    	        		}
+    	        	} );
+    	        });
     	    };
-      }) 
-      ;
+      });
 
